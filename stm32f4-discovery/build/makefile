@@ -28,7 +28,7 @@ CC      := $(GCC-PATH)/$(GCC-PREFIX)gcc
 AR      := $(GCC-PATH)/$(GCC-PREFIX)ar
 RANLIB  := $(GCC-PATH)/$(GCC-PREFIX)ranlib
 NM      := $(GCC-PATH)/$(GCC-PREFIX)nm
-DBG     := $(GCC-PATH)\$(GCC-PREFIX)gdb
+DBG     := $(GCC-PATH)/$(GCC-PREFIX)gdb
 
 SIZE    := $(GCC-PATH)/$(GCC-PREFIX)size
 OBJCOPY := $(GCC-PATH)/$(GCC-PREFIX)objcopy
