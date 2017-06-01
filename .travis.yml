@@ -17,7 +17,7 @@ before_script:
 - wget -O gcc-arm-none-eabi.tar.bz2 https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/6_1-2017q1/gcc-arm-none-eabi-6-2017-q1-update-linux.tar.bz2
 - tar -xf gcc-arm-none-eabi.tar.bz2 > /dev/null
 - wget -O qemu-arm.tgz https://github.com/gnuarmeclipse/qemu/releases/download/gae-2.8.0-20161227/gnuarmeclipse-qemu-debian64-2.8.0-201612271623-dev.tgz
-- tar -xf qemu-arm > /dev/null
+- tar -xf qemu-arm.tgz > /dev/null
 - ls 
 - ls gcc-arm-none-eabi/*
 - echo $HOME 
