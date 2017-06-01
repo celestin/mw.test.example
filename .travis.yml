@@ -16,6 +16,8 @@ before_script:
 - wget -O beta2.tar.gz https://bintray.com/mw-sc/mw.test/download_file?file_path=beta2-linux64-gcc4.9.tar.gz
 - tar -xf beta2.tar.gz > /dev/null
 - cd ..
+- export LIBRARY_PATH=$HOME/mw.test:$LIBRARY_PATH;
+- export LD_LIBRARY_PATH=$HOME/mw.test:$LD_LIBRARY_PATH;
 - wget -O boost_1_64_0.tar.gz https://dl.bintray.com/boostorg/beta/1.64.0.rc.1/source/boost_1_64_0_rc1.tar.gz
 - tar -xf boost_1_64_0.tar.gz > /dev/null
 - BOOST=$HOME/boost_1_64_0
