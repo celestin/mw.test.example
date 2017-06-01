@@ -1,0 +1,24 @@
+bin : 
+	@mkdir bin
+	@-mkdir bin\src
+	@-mkdir bin\test
+	@-mkdir bin\instrumented
+	@-mkdir bin\instrumented\src
+	@-mkdir bin\sys
+	@-mkdir bin\sys\src
+	@-mkdir bin\sys\src\cmsis
+	@-mkdir bin\sys\src\cortexm
+	@-mkdir bin\sys\src\diag
+	@-mkdir bin\sys\src\newlib
+	@-mkdir bin\sys\src\stm32f4-hal
+	@-mkdir bin/test
+	@-mkdir bin/src
+	@-mkdir bin/instrumented
+	@-mkdir bin/instrumented/src
+	@-mkdir bin/sys
+	@-mkdir bin/sys/src
+	@-mkdir bin/sys/src/cmsis
+	@-mkdir bin/sys/src/cortexm
+	@-mkdir bin/sys/src/diag
+	@-mkdir bin/sys/src/newlib
+	@-mkdir bin/sys/src/stm32f4-hal
