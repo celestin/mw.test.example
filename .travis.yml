@@ -24,6 +24,8 @@ before_script:
 - wget -O qemu-arm.tgz https://github.com/gnuarmeclipse/qemu/releases/download/gae-2.8.0-20161227/gnuarmeclipse-qemu-debian64-2.8.0-201612271623-dev.tgz
 - tar -xf qemu-arm.tgz > /dev/null
 - echo $HOME 
-- cd build
+- cd $TRAVIS_BUILD_DIR/stm32f4-discovery/build
 - cp config-travis.mk config.mk
 script:
+- make build -j4
+- make qemu 
