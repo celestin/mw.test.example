@@ -9,6 +9,8 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - python-yaml
+    - gcc
+    - g++
 before_script:
 - cd $HOME
 - mkdir mw.test
