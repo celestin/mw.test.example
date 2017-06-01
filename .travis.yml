@@ -1,0 +1,20 @@
+language: cpp
+compiler:
+- gcc
+os:
+- linux
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - python-yaml
+    - arm-none-eabi-gcc
+before_script:
+- cd $HOME
+- wget -O boost_1_64_0.tar.gz https://dl.bintray.com/boostorg/beta/1.64.0.rc.1/source/boost_1_64_0_rc1.tar.gz
+- tar -xf boost_1_64_0.tar.gz > /dev/null
+- BOOST=$HOME/boost_1_64_0
+- cd build
+- cp config-travis.mk config.mk
+script:
