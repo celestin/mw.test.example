@@ -36,5 +36,5 @@ before_script:
 - cd $TRAVIS_BUILD_DIR/stm32f4-discovery/build
 - cp config-travis.mk config.mk
 script:
-- make build -j4
+- make build
 - make qemu 
