@@ -20,7 +20,7 @@ before_script:
 - ./bootstrap.sh
 - cd $HOME
 - mkdir mw.test
-- wget -O beta2.tar.gz https://bintray.com/mw-sc/mw.test/download_file?file_path=beta2-source.tar.gz
+- wget -O beta2.tar.gz https://bintray.com/mw-sc/mw.test/download_file?file_path=beta2_source.tar.gz
 - cd mw.test
 - tar -xf ../beta2.tar.gz > /dev/null
 - $BOOST/b2 release -sBOOST_ROOT=$BOOST define=MW_TRAVISCI_BUILD toolset=gcc-6 linkflags="-ldl -pthread" -sBOOST_BUILD_PATH=. -j4
