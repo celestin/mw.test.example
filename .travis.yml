@@ -9,8 +9,8 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - python-yaml
-    - gcc
-    - g++
+    - gcc-6
+    - g++-6
 before_script:
 - cd $HOME
 - wget -O boost_1_64_0.tar.gz https://dl.bintray.com/boostorg/beta/1.64.0.rc.1/source/boost_1_64_0_rc1.tar.gz
