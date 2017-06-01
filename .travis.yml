@@ -13,16 +13,21 @@ addons:
     - g++
 before_script:
 - cd $HOME
-- mkdir mw.test
-- cd mw.test
-- wget -O beta2.tar.gz https://bintray.com/mw-sc/mw.test/download_file?file_path=beta2-linux64-gcc4.9.tar.gz
-- tar -xf beta2.tar.gz > /dev/null
-- cd ..
-- export LIBRARY_PATH=$HOME/mw.test:$LIBRARY_PATH;
-- export LD_LIBRARY_PATH=$HOME/mw.test:$LD_LIBRARY_PATH;
 - wget -O boost_1_64_0.tar.gz https://dl.bintray.com/boostorg/beta/1.64.0.rc.1/source/boost_1_64_0_rc1.tar.gz
 - tar -xf boost_1_64_0.tar.gz > /dev/null
 - BOOST=$HOME/boost_1_64_0
+- cd $BOOST
+- ./bootstrap.sh
+- cd $HOME
+- mkdir mw.test
+- wget -O beta2.tar.gz https://bintray.com/mw-sc/mw.test/download_file?file_path=beta2-source.tar.gz
+- cd mw.test
+- tar -xf ../beta2.tar.gz > /dev/null
+- $BOOST/b2 release -sBOOST_ROOT=$BOOST define=MW_TRAVISCI_BUILD toolset=gcc-6 linkflags="-ldl -pthread" -sBOOST_BUILD_PATH=. -j4
+- cd ..
+- export LIBRARY_PATH=$HOME/mw.test/bin/release:$LIBRARY_PATH;
+- export LD_LIBRARY_PATH=$HOME/mw.test/bin/release:$LD_LIBRARY_PATH;
+
 - wget -O gcc-arm-none-eabi.tar.bz2 https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/6_1-2017q1/gcc-arm-none-eabi-6-2017-q1-update-linux.tar.bz2
 - tar -xf gcc-arm-none-eabi.tar.bz2 > /dev/null
 - wget -O qemu-arm.tgz https://github.com/gnuarmeclipse/qemu/releases/download/gae-2.8.0-20161227/gnuarmeclipse-qemu-debian64-2.8.0-201612271623-dev.tgz

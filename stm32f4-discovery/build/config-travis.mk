@@ -1,4 +1,4 @@
-MW-TEST-PATH := /home/travis/mw.test
+MW-TEST-PATH := /home/travis/mw.test/bin/release
 GCC-PATH := /home/travis/gcc-arm-none-eabi-6-2017-q1-update/bin/
 GCC-PREFIX := arm-none-eabi-
 BOOST-LOCATION := /home/travis/boost
