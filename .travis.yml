@@ -22,10 +22,9 @@ before_script:
 - cd $BOOST
 - ./bootstrap.sh
 - cd $HOME
-- mkdir mw.test
-- wget -O beta2.zip https://bintray.com/mw-sc/mw.test/download_file?file_path=beta2_source.zip
+- git clone https://github.com/mw-sc/mw.test
 - cd mw.test
-- unzip ../beta2.zip > /dev/null
+- git submodule update --init --merge
 - $BOOST/b2 release -sBOOST_ROOT=$BOOST define=MW_TRAVISCI_BUILD toolset=gcc-6 linkflags="-ldl -pthread" -sBOOST_BUILD_PATH=. -j4
 - cd ..
 - export LIBRARY_PATH=$HOME/mw.test/bin/release:$LIBRARY_PATH;
