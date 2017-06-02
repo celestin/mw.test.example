@@ -161,6 +161,10 @@ __run_init_array (void)
   for (i = 0; i < count; i++)
     __preinit_array_start[i] ();
 
+#if defined(USE_GCOV)
+  __gcov_init();
+#endif
+
   // If you need to run the code in the .init section, please use
   // the startup files, since this requires the code in crti.o and crtn.o
   // to add the function prologue/epilogue.
