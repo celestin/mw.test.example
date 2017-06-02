@@ -102,13 +102,13 @@ test_state_openocd : test_state.elf
 openocd : blinky_openocd test_blink_openocd test_state_openocd
 
 blinky_qemu : blinky.elf
-	$(MW-DBG-RUNNER) $(DBG) --exe blinky.elf --other "$(QEMU_CMD) blinky.elf" --log blinky_qemu.run --remote localhost:1234 --init-script openocd --lib mw-exitcode mw-newlib-syscalls mw-calltrace --debug --mw-calltrace-all --mw-calltrace-timestamp  --mw-calltrace-depth 4 --timeout 60
+	$(MW-DBG-RUNNER) $(DBG) --exe blinky.elf --other "$(QEMU_CMD) blinky.elf" --log blinky_qemu.run --remote localhost:1234 --init-script qemu --lib mw-exitcode mw-newlib-syscalls mw-calltrace --debug --mw-calltrace-all --mw-calltrace-timestamp  --mw-calltrace-depth 4 --timeout 60
 
 test_blink_qemu : test_blink.elf
-	$(MW-DBG-RUNNER) $(DBG) --exe test_blink.elf --other "$(QEMU_CMD) test_blink.elf" --log test_blink_qemu.run  --remote localhost:1234 --init-script openocd --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
+	$(MW-DBG-RUNNER) $(DBG) --exe test_blink.elf --other "$(QEMU_CMD) test_blink.elf" --log test_blink_qemu.run  --remote localhost:1234 --init-script qemu --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
 
 test_state_qemu : test_state.elf
-	$(MW-DBG-RUNNER) $(DBG) --exe test_state.elf --other "$(QEMU_CMD) test_state.elf" --log test_state_qemu.run --remote localhost:1234 --init-script openocd --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
+	$(MW-DBG-RUNNER) $(DBG) --exe test_state.elf --other "$(QEMU_CMD) test_state.elf" --log test_state_qemu.run --remote localhost:1234 --init-script qemu --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
 
 
 qemu : blinky_qemu test_blink_qemu test_state_qemu
