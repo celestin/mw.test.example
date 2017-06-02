@@ -110,5 +110,4 @@ test_blink_qemu : test_blink.elf
 test_state_qemu : test_state.elf
 	$(MW-DBG-RUNNER) $(DBG) --exe test_state.elf --other "$(QEMU_CMD) test_state.elf" --log test_state_qemu.run --remote localhost:1234 --init-script qemu --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
 
-
 qemu : blinky_qemu test_blink_qemu test_state_qemu
