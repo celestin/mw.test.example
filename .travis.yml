@@ -8,6 +8,7 @@ addons:
     sources:
     - ubuntu-toolchain-r-test
     packages:
+    - qemu
     - python-yaml
     - gcc-6
     - g++-6
