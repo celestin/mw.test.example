@@ -39,8 +39,6 @@ before_script:
 script:
 - make build
 - make qemu 
-- cat test_state_qemu.run
-
 after_success:
     # Copying Coveralls data to a separate folder
     - cd $TRAVIS_BUILD_DIR/stm32f4-discovery
@@ -52,7 +50,7 @@ after_success:
     - git clone https://github.com/linux-test-project/lcov.git lcov_dir
     - GCOV_VERSION="--gcov-tool /home/travis/gcc-arm-none-eabi-6-2017-q1-update/bin/arm-none-eabi-gcov"
     - LCOV="$TRAVIS_BUILD_DIR/stm32f4-discovery/lcov_dir/bin/lcov $GCOV_VERSION --compat-libtool"
-    - $LCOV --directory ./coverals --base-directory ./ --capture --output-file ./coverals/coverage.info
+    - $LCOV --directory ./coverals --base-directory ./build --capture --output-file ./coverals/coverage.info
     - $LCOV --remove ./coverals/coverage.info "$MW_TEST/dbg-runner/test/*" "*boost*" "/usr/*" -o ./coverals/coverage.info
     # Sending data to Coveralls
     - gem install coveralls-lcov
