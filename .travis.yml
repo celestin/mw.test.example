@@ -40,6 +40,7 @@ before_script:
 script:
 - make build
 - make qemu 
+- cat test_state_qemu.run
 
 after_success:
     # Copying Coveralls data to a separate folder
