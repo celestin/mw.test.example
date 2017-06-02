@@ -55,7 +55,7 @@ QEMU_CMD := $(QEMU) -s -board STM32F4-Discovery --image
 -include objects.mk
 
 clean:
-	-$(RM) $(CC_DEPS)$(C++_DEPS)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(SECONDARY_FLASH)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(CPP_DEPS) blinky-traced.elf test_state.elf test_blink.elf
+	-$(RM) $(CC_DEPS)$(C++_DEPS)$(OBJS)$(BLINKY_OBJS)$(TEST_BLINK_OBJS)$(TEST_STATE_OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(SECONDARY_FLASH)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(CPP_DEPS) blinky-traced.elf test_state.elf test_blink.elf
 	-@echo '
 
 # Tool invocation for runnig with output
