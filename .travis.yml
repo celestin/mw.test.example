@@ -38,7 +38,7 @@ before_script:
 - cp config-travis.mk config.mk
 script:
 - make build
-- make qemu 
+- make qemu  
 after_success:
     # Copying Coveralls data to a separate folder
     - cd $TRAVIS_BUILD_DIR/stm32f4-discovery
