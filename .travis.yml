@@ -37,4 +37,5 @@ before_script:
 - cp config-travis.mk config.mk
 script:
 - make build
+- /home/travis/qemu/2.8.0-201612271623-dev/bin/qemu-system-gnuarmeclipse -s -board STM32F4-Discovery --image blinky.elf
 - make qemu 
