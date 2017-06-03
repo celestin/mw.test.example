@@ -1,3 +1,4 @@
+
 [![MW.Test Logo](https://raw.githubusercontent.com/mw-sc/mw.test/master/mw.test.png)](https://github.com/mw-sc/mw.test)
 
 # mw.test.example
@@ -21,10 +22,19 @@ For more details on that see the corresponding [.travis.yml](https://github.com/
 
 ## Used libraries & tools
 
-The following tools are used for this example, but you of course only need the ones of interest to you.
+The following tools are used for the examples:
+
+ - [mw.test](https://bintray.com/mw-sc/mw.test/mw.test)
+ - [arm-none-eabi-gcc](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
+ - [qemu](http://gnuarmeclipse.github.io/qemu)
+ - [openocd](http://gnuarmeclipse.github.io/openocd)
+ - [gnuarmeclipse](http://gnuarmeclipse.github.io)
 
 
 ## Note for linux users
 
-We currently have no proper setup for linux environments, which means that all binaries are just put into one folder.
+We currently have no proper setup for linux environments, which means that all binaries are just put into one folder. This means that you will have to modify the `LD_LIBRARY_PATH` environment variable to include the `mw.test` folder.
 
+```sh
+export LD_LIBRARY_PATH=$HOME/mw.test:$LD_LIBRARY_PATH;
+```
