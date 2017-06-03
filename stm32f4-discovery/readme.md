@@ -26,15 +26,34 @@ The main application is a timed version of blinky, which was restructured to be 
  - [BlinkLed.hpp](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/include/BlinkLed.hpp)
  - [BlinkLed.cpp](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/src/BlinkLed.cpp)
 
-T
+```
+//BlinkLed.hpp
+class BlinkLed
+{
+public:
+  BlinkLed (unsigned int port, unsigned int bit, bool active_low);
+
+  void powerUp ();
+  void turnOn ();
+  void turnOff ();
+  void toggle ();
+  bool is_on ();
+};
+
+extern std::array<BlinkLed, 4> blinkLeds;
+```
+
+The constructor takes the port and position in the port to construct. This is done in the definition of `blinkLeds` which can be found in [BlinkLed.cpp](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/src/BlinkLed.cpp#L94).
+
+The `powerUp` needs to be called before using the LED, which than can be turned on, off or toggled.
+
+The unit test can be found in the [test_blink.cpp](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/test/test_blink.cpp), see the [Test Blink](#test-blink) section.
 
 
 ### Timer
 
  - [Timer.hpp](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/include/Timer.hpp)
  - [Timer.cpp](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/src/Timer.cpp)
-
-The outline:
 
 ```
 //Timer.hpp
@@ -62,3 +81,7 @@ Note that the attribute is added to the `tick`and `SysTick_Handler` functions - 
 The class it not tested outside of the execution of [main.cpp](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/src/main.cpp), i.e. has no unit test.
 
 
+## Tests
+
+### Test Blink
+### Test State
