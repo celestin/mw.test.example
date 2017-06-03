@@ -3,8 +3,9 @@
 
 # mw.test.example
 
-
 This repository demonstrates our test-toolchain [mw.test](https://github.com/mw-sc/mw.test). We demonstrate how to use it with the following tools. Currently we only have an example with the [stm32f4-discovery](http://www.st.com/en/evaluation-tools/stm32f4discovery.html) board.
+
+See the [project structure](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/readme.md) for more details.
 
 ## Eclipse
 
