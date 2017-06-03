@@ -30,6 +30,7 @@ The following tools are used for the examples:
  - [openocd](http://gnuarmeclipse.github.io/openocd)
  - [gnuarmeclipse](http://gnuarmeclipse.github.io)
 
+*Qemu and OpenOcd are forks by the [gnuarmclipse plugin](http://gnuarmeclipse.github.io).*
 
 ## Note for linux users
 
