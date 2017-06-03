@@ -136,79 +136,56 @@ static int _buffered_write(int file, char* ptr, int len __attribute__((unused)))
 //read buffer
 static int read_fd = -1;
 static int read_pos = 0;
-static int read_pos_major = 0;
 static int read_end = 0;
-static int read_end_major = 0;
 static char read_buf[MW_NEWLIB_BUFFER_SIZE];
 
 void read_clear()
 {
     read_pos = 0;
-    read_pos_major = 0;
     read_end = 0;
     read_fd = -1;
 }
 
 void _read_init_buffer(int fd)
 {
-    _lseek(fd, (size_t)0, SEEK_CUR); //set to zero.
-    read_end_major = _lseek(fd, (size_t)0, SEEK_END);
-    _lseek(fd, (size_t)read_end, SEEK_CUR);
-
-    if (read_end_major > MW_NEWLIB_BUFFER_SIZE)
-        read_end = MW_NEWLIB_BUFFER_SIZE;
-    else
-        read_end = read_end_major;
-
     read_fd = fd;
-    read_pos_major = 0;
     read_pos = 0;
-    read_end = _read(fd, read_buf, read_end);
-    read_pos_major += read_end;
-
+    read_end = mw_func_stub(mw_func_read,
+            0,    // const char* arg1,
+            0,    // const char* arg2
+            read_fd, // int arg3
+            MW_NEWLIB_BUFFER_SIZE,  // int arg4
+            0,    // int arg5
+            read_buf,  // char* arg6
+            0     // struct stat* arg7
+            );
 }
 
 int _read_buffered(char* ptr, int len)
 {
-    if ((read_pos + len) >= read_end)
+    if( (read_pos == read_end) && (read_end == MW_NEWLIB_BUFFER_SIZE))
     {
-        int req = read_end_major - read_pos_major;
-
-        if (req < 0) //nothign to read left.
-        {
-            read_clear();
-            return -1;
-        }
-        else
-            return 0;
-
-        if (req > MW_NEWLIB_BUFFER_SIZE)
-            req = MW_NEWLIB_BUFFER_SIZE;
-
-        read_end = _read(read_fd, read_buf, req);
-        read_pos_major += read_end;
+        read_pos = 0;
+        read_end = mw_func_stub(mw_func_read,
+                0,    // const char* arg1,
+                0,    // const char* arg2
+                read_fd, // int arg3
+                MW_NEWLIB_BUFFER_SIZE,  // int arg4
+                0,    // int arg5
+                read_buf,  // char* arg6
+                0     // struct stat* arg7
+                );
     }
 
     //read what's available
     int i = 0;
     for (; ((read_pos + i) < read_end) && (i<len); i++) //read current buffer
         ptr[i] = read_buf[read_pos+i];
+
+    read_pos += i;
     return i;
 }
 
-int _lseek_buffered(int file __attribute__((unused)), int ptr, int dir )
-{
-    switch (dir)
-    {
-    case SEEK_CUR:
-        read_pos = ptr + read_pos;
-    case SEEK_END:
-        read_pos = ptr + read_end;
-    case SEEK_SET:
-        read_pos = ptr;
-    }
-    return read_pos;
-}
 
 
 int _open(char* file, int flags, int mode)
@@ -243,29 +220,26 @@ int _close(int fildes)
 
 int _lseek(int file, int ptr, int dir)
 {
-    if (file == read_fd)
-        return _lseek_buffered(file, ptr, dir);
-    else
-        return mw_func_stub(mw_func_lseek,
-                0, // const char* arg1,
-                0, // const char* arg2
-                file, // int arg3
-                ptr, // int arg4
-                dir, //int arg5
-                0, // char * arg6
-                0  // struct stat* arg7
-                );
+    return mw_func_stub(mw_func_lseek,
+            0, // const char* arg1,
+            0, // const char* arg2
+            file, // int arg3
+            ptr, // int arg4
+            dir, //int arg5
+            0, // char * arg6
+            0  // struct stat* arg7
+            );
 }
 
 
 int _read(int file, char* ptr, int len)
 {
-    if ((file != -1) && (file == read_fd))
+    if ((read_fd != -1) && (file == read_fd))
         return _read_buffered(ptr, len);
-    else if ((read_fd == -1) && (len == 1))
+    else if ((read_fd == -1) && (len>0))
     {
        _read_init_buffer(file);
-       return _read_buffered(ptr, len);
+      return  _read_buffered(ptr, len);
     }
     else
         return mw_func_stub(mw_func_read,
