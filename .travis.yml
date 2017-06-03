@@ -1,0 +1,58 @@
+language: cpp
+compiler:
+- gcc
+os:
+- linux
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - qemu
+    - python-yaml
+    - gcc-6
+    - g++-6
+before_script:
+- wget -O libc6_2.17-0ubuntu4_amd64.deb http://launchpadlibrarian.net/130794928/libc6_2.17-0ubuntu4_amd64.deb
+- sudo dpkg -i libc6_2.17-0ubuntu4_amd64.deb
+- cd $HOME
+- wget -O boost_1_64_0.tar.gz https://dl.bintray.com/boostorg/beta/1.64.0.rc.1/source/boost_1_64_0_rc1.tar.gz
+- tar -xf boost_1_64_0.tar.gz > /dev/null
+- BOOST=$HOME/boost_1_64_0
+- cd $BOOST
+- ./bootstrap.sh
+- cd $HOME
+- git clone https://github.com/mw-sc/mw.test
+- cd mw.test
+- git submodule update --init --merge
+- $BOOST/b2 release -sBOOST_ROOT=$BOOST define=MW_TRAVISCI_BUILD toolset=gcc-6 linkflags="-ldl -pthread" -sBOOST_BUILD_PATH=. -j4
+- cd ..
+- export LIBRARY_PATH=$HOME/mw.test/bin/release:$LIBRARY_PATH;
+- export LD_LIBRARY_PATH=$HOME/mw.test/bin/release:$LD_LIBRARY_PATH;
+- wget -O gcc-arm-none-eabi.tar.bz2 https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/6_1-2017q1/gcc-arm-none-eabi-6-2017-q1-update-linux.tar.bz2
+- tar -xf gcc-arm-none-eabi.tar.bz2 > /dev/null
+- wget -O qemu-arm.tgz https://github.com/gnuarmeclipse/qemu/releases/download/gae-2.8.0-20161227/gnuarmeclipse-qemu-debian64-2.8.0-201612271623-dev.tgz
+- tar -xf qemu-arm.tgz > /dev/null
+- echo $HOME 
+- cd $TRAVIS_BUILD_DIR/stm32f4-discovery/build
+- cp config-travis.mk config.mk
+script:
+- make build
+- make qemu  
+after_success:
+    # Copying Coveralls data to a separate folder
+    - cd $TRAVIS_BUILD_DIR/stm32f4-discovery
+    - mkdir -p ./coverals
+    - find ./build -name *.gcda -exec cp "{}" ./coverals/ \;
+    - find ./build -name *.gcno -exec cp "{}" ./coverals/ \;
+
+    # Preparing Coveralls data by changind data format to a readable one
+    - git clone https://github.com/linux-test-project/lcov.git lcov_dir
+    - GCOV_VERSION="--gcov-tool /home/travis/gcc-arm-none-eabi-6-2017-q1-update/bin/arm-none-eabi-gcov"
+    - LCOV="$TRAVIS_BUILD_DIR/stm32f4-discovery/lcov_dir/bin/lcov $GCOV_VERSION --compat-libtool"
+    - $LCOV --directory ./coverals --base-directory ./build --capture --output-file ./coverals/coverage.info
+    - $LCOV --remove ./coverals/coverage.info "$MW_TEST/dbg-runner/test/*" "*boost*" "/usr/*" -o ./coverals/coverage.info
+    # Sending data to Coveralls
+    - gem install coveralls-lcov
+    # https://github.com/okkez/coveralls-lcov/issues/2
+    - coveralls-lcov  --source-encoding=ISO-8859-1 ./coverals/coverage.info

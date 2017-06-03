@@ -161,6 +161,7 @@ __run_init_array (void)
   for (i = 0; i < count; i++)
     __preinit_array_start[i] ();
 
+
   // If you need to run the code in the .init section, please use
   // the startup files, since this requires the code in crti.o and crtn.o
   // to add the function prologue/epilogue.
@@ -179,9 +180,7 @@ __run_fini_array (void)
   int count;
   int i;
 
-#if defined(USE_GCOV)
-  __gcov_flush();
-#endif
+
   count = __fini_array_end - __fini_array_start;
   for (i = count; i > 0; i--)
     __fini_array_start[i - 1] ();
@@ -190,6 +189,9 @@ __run_fini_array (void)
   // the startup files, since this requires the code in crti.o and crtn.o
   // to add the function prologue/epilogue.
   //_fini(); // DO NOT ENABE THIS!
+#if defined(USE_GCOV)
+  __gcov_flush();
+#endif
 }
 
 #if defined(DEBUG) && (OS_INCLUDE_STARTUP_GUARD_CHECKS)
