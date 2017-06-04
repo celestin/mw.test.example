@@ -3,7 +3,7 @@
 
 # mw.test.example
 
-This repository demonstrates our test-toolchain [mw.test](https://github.com/mw-sc/mw.test). We demonstrate how to use it with the following tools. Currently we only have an example with the [stm32f4-discovery](http://www.st.com/en/evaluation-tools/stm32f4discovery.html) board.
+This repository demonstrates our test-toolchain [mw.test](https://github.com/mw-sc/mw.test). We demonstrate how to use it with the following tools. Currently we only have an example with the [stm32f4-discovery](http://www.st.com/en/evaluation-tools/stm32f4discovery.html) board using C++. The example is however simple enough to be applied to C as well.
 
 See the [project structure](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/readme.md) for more details.
 
@@ -19,7 +19,7 @@ In addition we have a custom makefile solution which also runs on Travis CI (usi
 |--------------|----------|
 | [![Build Status](https://travis-ci.org/mw-sc/mw.test.example.svg?branch=master)](https://travis-ci.org/mw-sc/mw.test.example) | [![Coverage Status](https://coveralls.io/repos/github/mw-sc/mw.test.example/badge.svg?branch=master)](https://coveralls.io/github/mw-sc/mw.test.example?branch=master) |
 
-For more details on that see the corresponding [.travis.yml](https://github.com/mw-sc/mw.test.example/blob/master/.travis.yml) or the [tutorial](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/makefile.md)
+For more details on that see the corresponding [.travis.yml](https://github.com/mw-sc/mw.test.example/blob/master/.travis.yml) or the [tutorial](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/build/readme.md)
 
 ## Used libraries & tools
 
