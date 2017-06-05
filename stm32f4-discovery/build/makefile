@@ -12,34 +12,34 @@ default : build
 
 -include config.mk
 
-ifeq ($(GCC-PATH),)
+ifeq ($(GCC_PATH),)
     GCC_PATH := " "
 endif
 
-ifeq ($(GCC-PREFIX),)
+ifeq ($(GCC_PREFIX),)
 	GCC_PREFIX := arm-none-eabi-gcc
 endif
 
-GCC_PRE := $(GCC-PATH)
-GCC_PRE += $(GCC-PREFIX)	
+GCC_PRE := $(GCC_PATH)
+GCC_PRE += $(GCC_PREFIX)	
 
-CXX     := $(GCC-PATH)/$(GCC-PREFIX)g++
-CC      := $(GCC-PATH)/$(GCC-PREFIX)gcc
-AR      := $(GCC-PATH)/$(GCC-PREFIX)ar
-RANLIB  := $(GCC-PATH)/$(GCC-PREFIX)ranlib
-NM      := $(GCC-PATH)/$(GCC-PREFIX)nm
-DBG     := $(GCC-PATH)/$(GCC-PREFIX)gdb
+CXX     := $(GCC_PATH)/$(GCC_PREFIX)g++
+CC      := $(GCC_PATH)/$(GCC_PREFIX)gcc
+AR      := $(GCC_PATH)/$(GCC_PREFIX)ar
+RANLIB  := $(GCC_PATH)/$(GCC_PREFIX)ranlib
+NM      := $(GCC_PATH)/$(GCC_PREFIX)nm
+DBG     := $(GCC_PATH)/$(GCC_PREFIX)gdb
 
-SIZE    := $(GCC-PATH)/$(GCC-PREFIX)size
-OBJCOPY := $(GCC-PATH)/$(GCC-PREFIX)objcopy
+SIZE    := $(GCC_PATH)/$(GCC_PREFIX)size
+OBJCOPY := $(GCC_PATH)/$(GCC_PREFIX)objcopy
 
-MW-WRAP := $(MW-TEST-PATH)/mw-wrap
-MW-DBG-RUNNER := $(MW-TEST-PATH)/mw-dbg-runner
+MW-WRAP := $(MW_TEST_PATH)/mw-wrap
+MW-DBG-RUNNER := $(MW_TEST_PATH)/mw-dbg-runner
 
 SEMIHOSTING := --specs=nano.specs --specs=rdimon.specs
-MW-INCLUDE := $(MW-TEST-PATH)/include
+MW-INCLUDE := $(MW_TEST_PATH)/include
 
-OPENOCD_CMD := --other "$(OPENOCD) $(OPENOCD-OPT)"
+OPENOCD_CMD := --other "$(OPENOCD) $(OPENOCD_OPT)"
 QEMU_CMD := $(QEMU) -s -board STM32F4-Discovery --image
 
 

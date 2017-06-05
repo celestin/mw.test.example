@@ -4,7 +4,7 @@
 		<cconfiguration id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597" moduleId="org.eclipse.cdt.core.settings" name="blinky">
 				<macros>
-					<stringMacro name="GCC-PREFIX" type="VALUE_TEXT" value="arm-none-eabi-"/>
+					<stringMacro name="GCC_PREFIX" type="VALUE_TEXT" value="arm-none-eabi-"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -35,7 +35,7 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.257569206" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" useByScannerDiscovery="false" value="GNU Tools for ARM Embedded Processors" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.1582637258" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.arm" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.1722881204" name="Instruction set" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.thumb" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.2083016728" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="${GCC-PATH}/${GCC-PREFIX}" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.2083016728" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="${GCC_PATH}/${GCC_PREFIX}" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.1162997661" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" useByScannerDiscovery="false" value="gcc" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.716759244" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp" useByScannerDiscovery="false" value="g++" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.804790321" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar" useByScannerDiscovery="false" value="ar" valueType="string"/>
@@ -72,7 +72,7 @@
 									<listOptionValue builtIn="false" value="&quot;../sys/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/stm32f4-hal&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MW-TEST-PATH}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MW_TEST_PATH}/include&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.2060969115" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -91,8 +91,8 @@
 									<listOptionValue builtIn="false" value="&quot;../sys/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/stm32f4-hal&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${BOOST-LOCATION}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MW-TEST-PATH}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${BOOST_LOCATION}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MW_TEST_PATH}/include&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions.148515036" name="Do not use exceptions (-fno-exceptions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.593756296" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -222,7 +222,7 @@
 		<cconfiguration id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488" moduleId="org.eclipse.cdt.core.settings" name="blinky-traced">
 				<macros>
-					<stringMacro name="cross_prefix" type="VALUE_TEXT" value="${GCC-PATH}/${GCC-PREFIX}"/>
+					<stringMacro name="cross_prefix" type="VALUE_TEXT" value="${GCC_PATH}/${GCC_PREFIX}"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -253,7 +253,7 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.281252736" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" useByScannerDiscovery="false" value="GNU Tools for ARM Embedded Processors" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.920123281" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.arm" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.385985499" name="Instruction set" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.thumb" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1421740271" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="${GCC-PATH}/${GCC-PREFIX}" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1421740271" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="${GCC_PATH}/${GCC_PREFIX}" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.2010881496" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" useByScannerDiscovery="false" value="gcc" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.795085858" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp" useByScannerDiscovery="false" value="g++" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.2005405108" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar" useByScannerDiscovery="false" value="ar" valueType="string"/>
@@ -290,7 +290,7 @@
 									<listOptionValue builtIn="false" value="&quot;../sys/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/stm32f4-hal&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MW-TEST-PATH}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MW_TEST_PATH}/include&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.687350590" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -309,8 +309,8 @@
 									<listOptionValue builtIn="false" value="&quot;../sys/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/stm32f4-hal&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${BOOST-LOCATION}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MW-TEST-PATH}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${BOOST_LOCATION}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MW_TEST_PATH}/include&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions.1613831008" name="Do not use exceptions (-fno-exceptions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.1569900308" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -552,7 +552,7 @@
 		<cconfiguration id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488.1067320404">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488.1067320404" moduleId="org.eclipse.cdt.core.settings" name="test_state">
 				<macros>
-					<stringMacro name="cross_prefix" type="VALUE_TEXT" value="${GCC-PATH}/${GCC-PREFIX}"/>
+					<stringMacro name="cross_prefix" type="VALUE_TEXT" value="${GCC_PATH}/${GCC_PREFIX}"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -565,7 +565,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="test_state" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="${cross_rm} -rf" description="State test" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GCCErrorParser" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488.1067320404" name="test_state" parent="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug" postannouncebuildStep="" postbuildStep="" preannouncebuildStep="make wrap" prebuildStep="make test/test_state.o &amp;&amp; ${MW-TEST-PATH}/mw-wrap.exe --output ../test/test_state_wrap_gen.cpp --wrapper-out wrap.opt --binary test/test_state.o --indirect --nm ${GCC-PATH}/${GCC-PREFIX}nm --template  ../test/test_state_wrap_tpl.cpp">
+				<configuration artifactName="test_state" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="${cross_rm} -rf" description="State test" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GCCErrorParser" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488.1067320404" name="test_state" parent="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug" postannouncebuildStep="" postbuildStep="" preannouncebuildStep="make wrap" prebuildStep="make test/test_state.o &amp;&amp; ${MW_TEST_PATH}/mw-wrap.exe --output ../test/test_state_wrap_gen.cpp --wrapper-out wrap.opt --binary test/test_state.o --indirect --nm ${GCC_PATH}/${GCC_PREFIX}nm --template  ../test/test_state_wrap_tpl.cpp">
 					<folderInfo id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488.1067320404." name="/" resourcePath="">
 						<toolChain errorParsers="" id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.debug.101471702" name="Cross ARM GCC" superClass="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.debug">
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.410335439" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.debug" valueType="enumerated"/>
@@ -583,7 +583,7 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.72450275" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" useByScannerDiscovery="false" value="GNU Tools for ARM Embedded Processors" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.315635746" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.arm" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.1639405856" name="Instruction set" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.thumb" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1758444359" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="${GCC-PATH}/${GCC-PREFIX}" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1758444359" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="${GCC_PATH}/${GCC_PREFIX}" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.1424582900" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" useByScannerDiscovery="false" value="gcc" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.1448233122" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp" useByScannerDiscovery="false" value="g++" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.995233937" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar" useByScannerDiscovery="false" value="ar" valueType="string"/>
@@ -620,7 +620,7 @@
 									<listOptionValue builtIn="false" value="&quot;../sys/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/stm32f4-hal&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MW-TEST-PATH}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MW_TEST_PATH}/include&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.341791685" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -639,8 +639,8 @@
 									<listOptionValue builtIn="false" value="&quot;../sys/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/stm32f4-hal&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${BOOST-LOCATION}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MW-TEST-PATH}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${BOOST_LOCATION}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MW_TEST_PATH}/include&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions.1788183517" name="Do not use exceptions (-fno-exceptions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.574089353" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
@@ -908,7 +908,7 @@
 		<cconfiguration id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488.1067320404.1403607960">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.539992829.1557771597.139313488.1067320404.1403607960" moduleId="org.eclipse.cdt.core.settings" name="test_blink">
 				<macros>
-					<stringMacro name="cross_prefix" type="VALUE_TEXT" value="${GCC-PATH}/${GCC-PREFIX}"/>
+					<stringMacro name="cross_prefix" type="VALUE_TEXT" value="${GCC_PATH}/${GCC_PREFIX}"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -940,7 +940,7 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.213792812" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" useByScannerDiscovery="false" value="GNU Tools for ARM Embedded Processors" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.477015485" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.arm" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.1628439512" name="Instruction set" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.thumb" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1566137661" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="${GCC-PATH}/${GCC-PREFIX}" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1566137661" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="${GCC_PATH}/${GCC_PREFIX}" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.33974395" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" useByScannerDiscovery="false" value="gcc" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.1786725240" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp" useByScannerDiscovery="false" value="g++" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.2018125920" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar" useByScannerDiscovery="false" value="ar" valueType="string"/>
@@ -977,7 +977,7 @@
 									<listOptionValue builtIn="false" value="&quot;../sys/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/stm32f4-hal&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MW-TEST-PATH}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MW_TEST_PATH}/include&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.718797052" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -996,8 +996,8 @@
 									<listOptionValue builtIn="false" value="&quot;../sys/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../sys/include/stm32f4-hal&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${BOOST-LOCATION}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MW-TEST-PATH}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${BOOST_LOCATION}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MW_TEST_PATH}/include&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions.341891375" name="Do not use exceptions (-fno-exceptions)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.noexceptions" useByScannerDiscovery="true" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti.975950729" name="Do not use RTTI (-fno-rtti)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.nortti" useByScannerDiscovery="true" value="true" valueType="boolean"/>
