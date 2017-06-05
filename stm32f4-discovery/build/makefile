@@ -40,7 +40,7 @@ SEMIHOSTING := --specs=nano.specs --specs=rdimon.specs
 MW-INCLUDE := $(MW_TEST_PATH)/include
 
 OPENOCD_CMD := --other "$(OPENOCD) $(OPENOCD_OPT)"
-QEMU_CMD := $(QEMU) -s -board STM32F4-Discovery --image
+QEMU_CMD := $(QEMU) $(QEMU_OPT) -s --image
 
 
 -include sources.mk
@@ -91,23 +91,28 @@ build : blinky.hex test_blink.hex test_state.hex
 	
 blinky_openocd : blinky.elf
 	$(MW-DBG-RUNNER) $(DBG) --exe blinky.elf $(OPENOCD_CMD) --log blinky_openocd.run --remote localhost:3333 --init-script openocd --lib mw-exitcode mw-newlib-syscalls mw-calltrace --debug --mw-calltrace-all --mw-calltrace-timestamp  --mw-calltrace-depth 4 --timeout 60
+	echo dummy > blinky_openocd
 
 test_blink_openocd : test_blink.elf
 	$(MW-DBG-RUNNER) $(DBG) --exe test_blink.elf $(OPENOCD_CMD) --log test_blink_openocd.run  --remote localhost:3333 --init-script openocd --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
+	echo dummy > test_blink_openocd
 
 test_state_openocd : test_state.elf
 	$(MW-DBG-RUNNER) $(DBG) --exe test_state.elf $(OPENOCD_CMD) --log test_state_openocd.run --remote localhost:3333 --init-script openocd --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
-
+	echo dummy > test_state_openocd
 
 openocd : blinky_openocd test_blink_openocd test_state_openocd
 
 blinky_qemu : blinky.elf
 	$(MW-DBG-RUNNER) $(DBG) --exe blinky.elf --other "$(QEMU_CMD) blinky.elf" --log blinky_qemu.run --remote localhost:1234 --init-script qemu --lib mw-exitcode mw-newlib-syscalls mw-calltrace --debug --mw-calltrace-all --mw-calltrace-timestamp  --mw-calltrace-depth 4 --timeout 60
+	echo dummy > blinky_qemu
 
 test_blink_qemu : test_blink.elf
 	$(MW-DBG-RUNNER) $(DBG) --exe test_blink.elf --other "$(QEMU_CMD) test_blink.elf" --log test_blink_qemu.run  --remote localhost:1234 --init-script qemu --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
+	echo dummy > test_blink_qemu
 
 test_state_qemu : test_state.elf
 	$(MW-DBG-RUNNER) $(DBG) --exe test_state.elf --other "$(QEMU_CMD) test_state.elf" --log test_state_qemu.run --remote localhost:1234 --init-script qemu --lib mw-exitcode mw-newlib-syscalls mw-test-backend mw-calltrace --debug --timeout 60
+	echo dummy > test_state_qemu
 
 qemu : blinky_qemu test_blink_qemu test_state_qemu
