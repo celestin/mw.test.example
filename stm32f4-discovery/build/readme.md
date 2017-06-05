@@ -46,11 +46,8 @@ target | action | subtargets
 
 *The tests will create a dummy file to verify a succesful run.*
 
-
-
-*Example screenshot from running a test.*
-
-![screenshot_qemu](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/doc/qemu_screenshot.png)
+[![screenshot_qemu](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/doc/qemu_screenshot.png)
+*Example screenshot from running a test.*](https://raw.githubusercontent.com/mw-sc/mw.test.example/master/stm32f4-discovery/doc/qemu_screenshot.png)
 
 ## Binaries
 
@@ -60,10 +57,41 @@ The sources  [sys/src/newlib/_syscalls.c](https://github.com/mw-sc/mw.test.examp
 
 ### Binky.elf
 
-The blinky.elf is based on [src/main.cpp](https://github.com/mw-sc/mw.test.example/tree/master/stm32f4-discovery/src/main.cpp) which will iterate through all 16 states twice. Please see the description of [main.cpp](https://github.com/mw-sc/mw.test.example/tree/master/stm32f4-discovery/src/readme.md#blinky) for more details.
+The blinky.elf is based on [src/main.cpp](https://github.com/mw-sc/mw.test.example/tree/master/stm32f4-discovery/src/main.cpp) which will iterate through all 16 states twice. The bulid is straight-forward if you take the modules listed below into account.
+Please see the description of [main.cpp](https://github.com/mw-sc/mw.test.example/tree/master/stm32f4-discovery/src/readme.md#blinky) for more details.
+
+### test_blink.elf
+
+The test blink is uses [test/test_blink.cpp](https://github.com/mw-sc/mw.test.example/tree/master/stm32f4-discovery/test/test_blink.cpp) and checks if every LED in the `blinkLed` array is in the correct position. The bulid is straight-forward if you take the modules listed below into account.
+Please see the description of [test_blink.cpp](https://github.com/mw-sc/mw.test.example/tree/master/stm32f4-discovery/test/readme.md#test-blink) for more details.
+
+### test_state.elf
+
+The test blink is uses [test/test_state.cpp](https://github.com/mw-sc/mw.test.example/tree/master/stm32f4-discovery/test/test_state.cpp) and checks the state machine for correctness. **It uses [mw-wrap](https://github.com/mw-sc/mw.wrap) to test without using the hardware.**
+Please see the description of [test_state.cpp](https://github.com/mw-sc/mw.test.example/tree/master/stm32f4-discovery/test/readme.md#test-state) for more details.
+
+The additional build steps for the build are given below, found in [bulid/test/subdir.mk](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/build/test/subdir.mk#L33).
+
+```makefile
+test/test_state.nm : test/test_state.o
+	$(NM) test/test_state.o --no-demangle > test/test_state.nm
 
 
-## Modules
+test/test_state.dem : test/test_state.o
+	$(NM) test/test_state.o --demangle > test/test_state.dem
+
+test/wrap_gen.cpp : test/test_state.dem test/test_state.nm ../test/test_state_wrap_tpl.cpp
+	$(MW-WRAP) --output test/wrap_gen.cpp --wrapper-out wrap.opt --indirect --outline test/test_state.nm --dem-outline test/test_state.dem --template ../test/test_state_wrap_tpl.cpp
+
+```
+
+`NM` and `MW-WRAP` are defined in the main [makefile](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/build/makefile) to give the commands for `arm-none-eabi-nm` and `mw-wrap`. What this does is to read the outline from the `test_state.o`, i.e. the object with the wrap-functions, into a mangled and demangled version. This means that those are updated once the object changes.
+
+The wrap command will generate us the source for the wrappers, plus the options for the linker. Since the linker step will depend on `test/wrap_gen.o` we do not need to add the `wrap.opt` to the list. Note that the `test_state_wrap_tpl` only contains a forward-declaration of `struct BlinkLed`. 
+
+The `wrap.opt` is passed to the linker as a response file, i.e. `@wrap.opt`.
+
+## Objects
 
 To have as little compile time as possible many of the objects are shared. They are however not packaged into static libraries, but passed to the linker as seperate files. The rules are defined in the subfolders as `subdir.mk`
 
