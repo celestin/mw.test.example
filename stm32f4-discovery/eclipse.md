@@ -4,9 +4,9 @@ We provide eclipse projects files that can be imported into your workspace (File
 
 It provides build descriptions for all elfs, a debug sessins using semihosting and execution for qemu & openocd.
 
-## String replacements
+## String substitutions
 
-
+In order to keep the settings outside of the project settings, they are placed in the workspace settings. You will have to add `string replacements` which can be found in Window->Preferences->Run/Debug->String Substitution. 
 
 Name | Description
 :----|:-----------
