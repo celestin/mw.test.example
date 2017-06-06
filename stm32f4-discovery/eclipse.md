@@ -2,7 +2,7 @@
 
 We provide eclipse projects files that can be imported into your workspace (File->Import->Existing Projects into Workspace).
 
-It provides build descriptions for all elfs, a debug sessins using semihosting and execution for qemu & openocd.
+It provides build descriptions for all elfs, a debug sessions using semihosting and execution for qemu & openocd.
 
 ## String substitutions
 
@@ -21,6 +21,6 @@ Name | Description
 
 *More details will follow soon.*
 
-## Not for the Wrap functionality
+## Note for the Wrap functionality
 
 In order to use the eclipse build system while having generated source, we added the [`test/test_state_wrap_gen.hpp`](https://github.com/mw-sc/mw.test.example/blob/master/stm32f4-discovery/test/test_state_wrap_gen.cpp)
